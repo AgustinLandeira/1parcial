@@ -1,0 +1,136 @@
+{
+    "tipo": [
+        {
+            "nombre": "Bulbasaur",
+            "maximo": "49-AMBOS"
+        },
+        {
+            "nombre": "Ivysaur",
+            "maximo": "63-DEFENSA"
+        },
+        {
+            "nombre": "Venusaur",
+            "maximo": "83-DEFENSA"
+        },
+        {
+            "nombre": "Weedle",
+            "maximo": "35-ATAQUE"
+        },
+        {
+            "nombre": "Kakuna",
+            "maximo": "50-DEFENSA"
+        },
+        {
+            "nombre": "Beedrill",
+            "maximo": "90-ATAQUE"
+        },
+        {
+            "nombre": "Ekans",
+            "maximo": "60-ATAQUE"
+        },
+        {
+            "nombre": "Arbok",
+            "maximo": "85-ATAQUE"
+        },
+        {
+            "nombre": "Nidoran?",
+            "maximo": "52-DEFENSA"
+        },
+        {
+            "nombre": "Nidorina",
+            "maximo": "67-DEFENSA"
+        },
+        {
+            "nombre": "Nidoqueen",
+            "maximo": "92-ATAQUE"
+        },
+        {
+            "nombre": "Nidoran?",
+            "maximo": "57-ATAQUE"
+        },
+        {
+            "nombre": "Nidorino",
+            "maximo": "72-ATAQUE"
+        },
+        {
+            "nombre": "Nidoking",
+            "maximo": "102-ATAQUE"
+        },
+        {
+            "nombre": "Zubat",
+            "maximo": "45-ATAQUE"
+        },
+        {
+            "nombre": "Golbat",
+            "maximo": "80-ATAQUE"
+        },
+        {
+            "nombre": "Oddish",
+            "maximo": "55-DEFENSA"
+        },
+        {
+            "nombre": "Gloom",
+            "maximo": "70-DEFENSA"
+        },
+        {
+            "nombre": "Vileplume",
+            "maximo": "85-DEFENSA"
+        },
+        {
+            "nombre": "Venonat",
+            "maximo": "55-ATAQUE"
+        },
+        {
+            "nombre": "Venomoth",
+            "maximo": "65-ATAQUE"
+        },
+        {
+            "nombre": "Bellsprout",
+            "maximo": "75-ATAQUE"
+        },
+        {
+            "nombre": "Weepinbell",
+            "maximo": "90-ATAQUE"
+        },
+        {
+            "nombre": "Victreebel",
+            "maximo": "105-ATAQUE"
+        },
+        {
+            "nombre": "Tentacool",
+            "maximo": "40-ATAQUE"
+        },
+        {
+            "nombre": "Tentacruel",
+            "maximo": "70-ATAQUE"
+        },
+        {
+            "nombre": "Grimer",
+            "maximo": "80-ATAQUE"
+        },
+        {
+            "nombre": "Muk",
+            "maximo": "105-ATAQUE"
+        },
+        {
+            "nombre": "Gastly",
+            "maximo": "35-ATAQUE"
+        },
+        {
+            "nombre": "Haunter",
+            "maximo": "50-ATAQUE"
+        },
+        {
+            "nombre": "Gengar",
+            "maximo": "65-ATAQUE"
+        },
+        {
+            "nombre": "Koffing",
+            "maximo": "95-DEFENSA"
+        },
+        {
+            "nombre": "Weezing",
+            "maximo": "120-DEFENSA"
+        }
+    ]
+}
