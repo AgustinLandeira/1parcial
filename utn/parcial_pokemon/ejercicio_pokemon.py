@@ -265,5 +265,48 @@ def leer_json(path):
         
     for pokemon in diccionario_pokemon["tipo"]:
         print(f"{pokemon['nombre']}-{pokemon['maximo']}")
+ 
+ 
+def agregar_pokemon(lista_recibida:list)->list:
+
+    while True:
+        
+        un_pokemon = {}
+        
+        un_pokemon["numero_pokedex"] = input("ingrese el numero de pokedex: ")
+        un_pokemon["nombre"] = input("ingrese elnombre: ")
+        un_pokemon["tipo"] = input("ingrese el tipo de pokemon: ").capitalize()
+        un_pokemon["ataque"] = input("ingrese el el poder de ataque del pokemon: ")
+        un_pokemon["defensa"] = input("ingrese el poder de defensa: ")
+        un_pokemon["habilidades"] = input(" ingrese las habilidades del pokemon: ").capitalize()
+        
+        for pokemon in lista_recibida:
+            if pokemon["nombre"] == un_pokemon["nombre"]:
+                print("el pokemon ya existe")
+                repetido = True
+                break
+            
+            if repetido != True:
+                lista_recibida.append(un_pokemon)
+        
+        
+        
+        
+        
+        respuesta = input("desea ingresar un nuevo pokemon? ")
+        
+        if respuesta == "si":
+            continue
+        else:
+            break
+         
+    return lista_recibida
+      
     
+def guardar_datos_csv(path:str):
+    
+    with open(path,"r") as file:
+        pass
+        
+         
 
