@@ -11,7 +11,8 @@ def imprimir_menu():
             6. generar un archivo json con un tipo de los pokemones
             7. leer el json que creaste
             8. agregar un pokemon a la lista
-            9 . salir del menu""")
+            9 . leer archivo csv
+            10. salir """)
 
 def pokemon_menu_principal()->int:
     imprimir_menu()
@@ -40,11 +41,12 @@ def pokemon_app_():
             
         respuesta = pokemon_menu_principal()
         
-        if respuesta <10 and type(respuesta) == int:
+        if respuesta <11 and type(respuesta) == int:
         
             if respuesta == 1:
                 lista_creada = True
-                lista_pokemones=traer_csv("pokemones.csv")
+                lista_pokemones=traer_csv("nuevo.csv")#pokemones.csv
+                print("se trajo los datos del csv")
                 
                 
             elif respuesta == 2 and lista_creada == True:
@@ -69,18 +71,23 @@ def pokemon_app_():
                 guardar_json(archivo,tipo,lista_pokemon)
                 
             elif respuesta == 7 and lista_creada == True :
-                path = input("ingrese el nombre del archivo que se creo para leerlo: ")
-                leer_json(path)
+                
+                leer_json(archivo)
                 
             elif respuesta ==8 and lista_creada == True:
                 lista_pokemon = agregar_pokemon(lista_pokemon)
-            
-            elif respuesta == 9:
+                print(lista_pokemon)
+                
+                
+            elif respuesta == 9 and lista_creada == True :
+                guardar_datos_csv(lista_pokemon)
+                
+            elif respuesta == 10:
                 print("acabas de cerrar la aplicacion")
                 
                 break
         else:
-            respuesta=int(input("error reingrese el numero"))
+            respuesta=int(input("error reingrese el numero: "))
             
         if lista_creada == True:
             

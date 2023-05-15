@@ -55,17 +55,17 @@ with open("agende.csv","w") as archivo:
         line="{0},{1},{2}\n".format(nombres[i],apellidos[i],edades[i])
         archivo.write(line)
         '''
-'''import re
+import re
 
-with open("agende.csv","r") as archivo:
+'''with open("agende.csv","r") as archivo:
     for line in archivo:
        #registro = line.split(",")
        registro = re.split(",|\n",line)
        #print(registro)
        
-       print(f"{registro[0]}-{registro[1]}-{registro[2]}")
+       print(f"{registro[0]}-{registro[1]}-{registro[2]}")'''
        
-       '''
+       
 ###################################################
 #json
 '''import json

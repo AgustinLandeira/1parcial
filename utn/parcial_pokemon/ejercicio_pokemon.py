@@ -266,19 +266,50 @@ def leer_json(path):
     for pokemon in diccionario_pokemon["tipo"]:
         print(f"{pokemon['nombre']}-{pokemon['maximo']}")
  
- 
 def agregar_pokemon(lista_recibida:list)->list:
+    
+    """
+    agregara un pokemon a la lista si es que no se repite
+    parameters: recinira una lista de pokemones
+    return : devolvera una lista con o sin nuevos pokemones
+    
+    """
 
     while True:
+        
+        lista_tipos = []
+        lista_habilidades = []
+        
+        repetido = False
         
         un_pokemon = {}
         
         un_pokemon["numero_pokedex"] = input("ingrese el numero de pokedex: ")
         un_pokemon["nombre"] = input("ingrese elnombre: ")
-        un_pokemon["tipo"] = input("ingrese el tipo de pokemon: ").capitalize()
+        while True:
+            un_pokemon["tipo"] = input("ingrese el tipo de pokemon: ").capitalize()
+            respuesta = input("desa ingresar otro tipo?: ")
+            
+            lista_tipos.append(un_pokemon["tipo"])
+            
+            if respuesta == "no":
+                break
+                
         un_pokemon["ataque"] = input("ingrese el el poder de ataque del pokemon: ")
         un_pokemon["defensa"] = input("ingrese el poder de defensa: ")
-        un_pokemon["habilidades"] = input(" ingrese las habilidades del pokemon: ").capitalize()
+        
+        while True:
+            un_pokemon["habilidades"] = input(" ingrese las habilidades del pokemon: ").capitalize()
+            
+            respuesta = input("desa ingresar otra habildad?: ")
+            
+            lista_habilidades.append(un_pokemon["habilidades"])
+            
+            if respuesta == "no":
+                break
+            
+        un_pokemon["habilidades"] = lista_habilidades
+        un_pokemon["tipo"] = lista_tipos
         
         for pokemon in lista_recibida:
             if pokemon["nombre"] == un_pokemon["nombre"]:
@@ -286,27 +317,58 @@ def agregar_pokemon(lista_recibida:list)->list:
                 repetido = True
                 break
             
-            if repetido != True:
-                lista_recibida.append(un_pokemon)
-        
-        
-        
-        
+        if repetido != True:
+            lista_recibida.append(un_pokemon)
+            print(lista_recibida)
         
         respuesta = input("desea ingresar un nuevo pokemon? ")
+        
+        while respuesta != "si" and respuesta != "no":
+            respuesta = input("ERROR,desea ingresar un nuevo pokemon?(SI O NO):  ")
         
         if respuesta == "si":
             continue
         else:
             break
          
-    return lista_recibida
-      
+    return lista_recibida    
     
-def guardar_datos_csv(path:str):
+def guardar_datos_csv(lista_recibida:list):
     
-    with open(path,"r") as file:
-        pass
+    with open("nuevo.csv","w",encoding="UTF-8") as file:
+        
+        for pokemon in lista_recibida:
+            
+            pokedex = pokemon["numero_pokedex"]
+            nombre = pokemon['nombre']
+            
+            tipo = pokemon['tipo']
+            
+            if len(tipo) >1:
+                cadena = "/"
+                tipo = cadena.join(tipo)
+            else:
+                cadena =""
+                tipo = cadena.join(tipo)
+            
+            ataque = pokemon['ataque']
+            defensa = pokemon['defensa']
+            habilidades = pokemon['habilidades']
+            
+            for i in range(len(habilidades)):
+                if habilidades[i] == "":
+                    habilidades[i] = "Ninguna"
+            
+            if len(habilidades) >1:
+                cadena = "|*|"
+                habilidades = cadena.join(habilidades)
+            else:
+                cadena = "|*|Ninguna"
+                habilidades = cadena.join(habilidades)
+            
+            line = f"{pokedex},{nombre},{tipo},{ataque},{defensa},{habilidades}\n"
+            file.write(line)
+            
         
          
 
