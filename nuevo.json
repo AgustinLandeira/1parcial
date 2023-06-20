@@ -1,0 +1,132 @@
+{
+    "tipo": [
+        {
+            "nombre": "Magikarp",
+            "maximo": "55-DEFENSA"
+        },
+        {
+            "nombre": "Tentacool",
+            "maximo": "40-ATAQUE"
+        },
+        {
+            "nombre": "Horsea",
+            "maximo": "70-DEFENSA"
+        },
+        {
+            "nombre": "Omanyte",
+            "maximo": "100-DEFENSA"
+        },
+        {
+            "nombre": "Seel",
+            "maximo": "55-DEFENSA"
+        },
+        {
+            "nombre": "Staryu",
+            "maximo": "55-DEFENSA"
+        },
+        {
+            "nombre": "Squirtle",
+            "maximo": "65-DEFENSA"
+        },
+        {
+            "nombre": "Poliwag",
+            "maximo": "50-ATAQUE"
+        },
+        {
+            "nombre": "Psyduck",
+            "maximo": "52-ATAQUE"
+        },
+        {
+            "nombre": "Omastar",
+            "maximo": "125-DEFENSA"
+        },
+        {
+            "nombre": "Wartortle",
+            "maximo": "80-DEFENSA"
+        },
+        {
+            "nombre": "Slowpoke",
+            "maximo": "65-AMBOS"
+        },
+        {
+            "nombre": "Poliwhirl",
+            "maximo": "65-AMBOS"
+        },
+        {
+            "nombre": "Seadra",
+            "maximo": "95-DEFENSA"
+        },
+        {
+            "nombre": "Shellder",
+            "maximo": "100-DEFENSA"
+        },
+        {
+            "nombre": "Goldeen",
+            "maximo": "67-ATAQUE"
+        },
+        {
+            "nombre": "Tentacruel",
+            "maximo": "70-ATAQUE"
+        },
+        {
+            "nombre": "Dewgong",
+            "maximo": "80-DEFENSA"
+        },
+        {
+            "nombre": "Slowbro",
+            "maximo": "110-DEFENSA"
+        },
+        {
+            "nombre": "Starmie",
+            "maximo": "85-DEFENSA"
+        },
+        {
+            "nombre": "Kabuto",
+            "maximo": "90-DEFENSA"
+        },
+        {
+            "nombre": "Golduck",
+            "maximo": "82-ATAQUE"
+        },
+        {
+            "nombre": "Blastoise",
+            "maximo": "100-DEFENSA"
+        },
+        {
+            "nombre": "Lapras",
+            "maximo": "85-ATAQUE"
+        },
+        {
+            "nombre": "Poliwrath",
+            "maximo": "95-DEFENSA"
+        },
+        {
+            "nombre": "Seaking",
+            "maximo": "92-ATAQUE"
+        },
+        {
+            "nombre": "Cloyster",
+            "maximo": "180-DEFENSA"
+        },
+        {
+            "nombre": "Krabby",
+            "maximo": "105-ATAQUE"
+        },
+        {
+            "nombre": "Vaporeon",
+            "maximo": "110-ATAQUE"
+        },
+        {
+            "nombre": "Kabutops",
+            "maximo": "115-ATAQUE"
+        },
+        {
+            "nombre": "Gyarados",
+            "maximo": "125-ATAQUE"
+        },
+        {
+            "nombre": "Kingler",
+            "maximo": "130-ATAQUE"
+        }
+    ]
+}

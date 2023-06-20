@@ -35,7 +35,7 @@ def contar_tipos(lista:list,tipo:str) -> int:
                 
     return contador
 
-def mostrar_lista_tipos(lista_pokemones):
+def mostrar_lista_tipos(lista_pokemones):#2
     """
     mostrara la lista de los tipos con las veces que se repitan
     parametro: recibe una lista
@@ -71,7 +71,7 @@ def dividir_segun_tipos(lista:list,tipo:str)->list:
                               
         return lista_segun_tipo  
     
-def listar_pokemones_por_tipo(lista_pokemon:list):
+def listar_pokemones_por_tipo(lista_pokemon:list):#3
     """
     va a mostrar una lista con los distintos pokemones que hay junto con su nombre y ataque
     parametro: recibira una lista
@@ -133,7 +133,7 @@ def listar_segun_habilidad(habilidad_pedida:str,lista_pokemon:list)->list:
                     
         return lista_segun_habilidad    
 
-def listar_pokemon_habilidad(descripcion:str,lista_pokemon): 
+def listar_pokemon_habilidad(descripcion:str,lista_pokemon):#4
     """
     muestra una lista de los pokemones con la habilidad que se ha solicitado
     parametro: recibira la descripcion de la habilidad y una lista de pokemones
@@ -153,7 +153,7 @@ def listar_pokemon_habilidad(descripcion:str,lista_pokemon):
         print("la habilidad no fue encontrada")
         print("---------------------------------------------------------------\n")    
 
-def ordenar_pokemones(lista_pokemones:list,clave) ->list:
+def ordenar_pokemones(lista_pokemones:list,clave) ->list: 
     
     """
     ordena los pokemones por orden de poder
@@ -175,7 +175,7 @@ def ordenar_pokemones(lista_pokemones:list,clave) ->list:
                     
     return lista_pokemones
 
-def listar_pokemones_orden(lista:list,clave:str):
+def listar_pokemones_orden(lista:list,clave:str):#5
     """
     mostrara el orden de los pokemones
     parametros: recibira una lista y una clave que va ser comparada y ordenada
@@ -221,7 +221,7 @@ def calcular_mayor(ataque:str,defensa:str)->str:
     
     return mensaje
     
-def guardar_json(path:str,tipo_solicitado:str,lista:list): 
+def guardar_json(path:str,tipo_solicitado:str,lista:list): #6
     """
     creara un archivo json  y la guardara
     parametro: path: recibira el nombre del archivo, tipo_solicitado: el tipo del pokemon y una lista
@@ -243,7 +243,7 @@ def guardar_json(path:str,tipo_solicitado:str,lista:list):
                 un_pokemon["tipo"].append({"nombre":pokemon["nombre"],"maximo":informacion})
         
         if un_pokemon["tipo"] == []:     
-            print("diccionario vacio")
+            print("no se encontro el tipo")
         else:
             with open(path,"w") as file:
                 
@@ -252,7 +252,7 @@ def guardar_json(path:str,tipo_solicitado:str,lista:list):
     else:
         print("no se pudo entrar")
         
-def leer_json(path):
+def leer_json(path): #7
     
     """
     lee el archivo json
@@ -266,13 +266,12 @@ def leer_json(path):
     for pokemon in diccionario_pokemon["tipo"]:
         print(f"{pokemon['nombre']}-{pokemon['maximo']}")
  
-def agregar_pokemon(lista_recibida:list)->list:
+def agregar_pokemon(lista_recibida:list)->list: # 8
     
     """
     agregara un pokemon a la lista si es que no se repite
     parameters: recinira una lista de pokemones
     return : devolvera una lista con o sin nuevos pokemones
-    
     """
 
     while True:
@@ -285,23 +284,41 @@ def agregar_pokemon(lista_recibida:list)->list:
         un_pokemon = {}
         
         un_pokemon["numero_pokedex"] = input("ingrese el numero de pokedex: ")
-        un_pokemon["nombre"] = input("ingrese elnombre: ")
+        un_pokemon["nombre"] = input("ingrese el nombre: ")
+        
         while True:
             un_pokemon["tipo"] = input("ingrese el tipo de pokemon: ").capitalize()
-            respuesta = input("desa ingresar otro tipo?: ")
+            respuesta = input("desea ingresar otro tipo?: ")
             
+            while respuesta != "no" and respuesta != "si":
+                respuesta = input("desea ingresar otro tipo?: ")
+                
             lista_tipos.append(un_pokemon["tipo"])
             
             if respuesta == "no":
                 break
                 
-        un_pokemon["ataque"] = input("ingrese el el poder de ataque del pokemon: ")
+        un_pokemon["ataque"] = input("ingrese el  poder de ataque del pokemon: ")
+        
+        while re.match("[a-zA-Z]",un_pokemon["ataque"]):
+            
+            un_pokemon["ataque"] = input("ERROR,ingrese el  poder de ataque del pokemon: ")
+        
         un_pokemon["defensa"] = input("ingrese el poder de defensa: ")
         
+        while re.match("[a-zA-Z]",un_pokemon["defensa"]):
+            un_pokemon["defensa"] = input("ERROR,ingrese el poder de defensa: ")
+            
         while True:
             un_pokemon["habilidades"] = input(" ingrese las habilidades del pokemon: ").capitalize()
             
-            respuesta = input("desa ingresar otra habildad?: ")
+            while re.match("[0-9]",un_pokemon["habilidades"]):
+                un_pokemon["habilidades"] = input("porfavor ingreser la habildad?: ")
+                 
+            respuesta = input("desea ingresar otra habilidad?: ")
+            
+            while respuesta != "no" and respuesta != "si":
+                respuesta = input("desea ingresar otra habildad?: ")
             
             lista_habilidades.append(un_pokemon["habilidades"])
             
@@ -333,9 +350,13 @@ def agregar_pokemon(lista_recibida:list)->list:
          
     return lista_recibida    
     
-def guardar_datos_csv(lista_recibida:list):
+def guardar_datos_csv(lista_recibida:list): #9
+    """
+    guarda datos en un nuevo csv
+    parametros: va a recibir una lista de pokemones
+    """
     
-    with open("nuevo.csv","w",encoding="UTF-8") as file:
+    with open("nuevoo.csv","w",encoding="UTF-8") as file:
         
         for pokemon in lista_recibida:
             
@@ -368,7 +389,150 @@ def guardar_datos_csv(lista_recibida:list):
             
             line = f"{pokedex},{nombre},{tipo},{ataque},{defensa},{habilidades}\n"
             file.write(line)
-            
+
+def contar_pokemon_eliminado(lista_filtrada:list)->int:
+    """
+    va a contar la lista_filtrada de los pokemones que cumplieron con la condicion pedida
+    parametro: recibe la lista de pokemones que coincidieron con la busqueda
+    return : devulve un contador de cuantos pokemones se va a eliminar
+    """
+    contador = 0
+    for i in range(len(lista_filtrada)):
+        contador += 1
         
-         
+    return contador
+
+def buscar_pokemon(criterio,lista_pokemon:list,campo_buscado:str):
+    """
+    busca el pokemon con el campo solicitado
+    parametro: recibe la condicion, la lista de pokemones y el campo que seria una clave
+    return: retorna una lista de pokemnes sin los que coincidieron con el criterio y un contador de los que
+    fueron eliminados
+    """
+    lista_filtrada = []
+    
+    agua = 0
+    
+    for pokemon in lista_pokemon:#for valor in pokemon[campo_buscado]:
+        
+        if type(pokemon[campo_buscado]) == list:
+            
+            for elemento in pokemon[campo_buscado]:
+        
+                if criterio(elemento):
+                    agua += 1
+                    lista_filtrada.append(pokemon)         
+                                        
+        elif criterio(pokemon[campo_buscado]):
+            
+            lista_filtrada.append(pokemon)
+    
+    for pokemon in lista_filtrada:
+        lista_pokemon.remove(pokemon)   
+    
+    contador = contar_pokemon_eliminado(lista_filtrada)
+    
+    if contador == 0:
+        contador = "no se encontro ninguna pokemon que cumpla con la condicion"   
+              
+    return lista_pokemon,contador
+    
+def mostrar_pokemones_eliminados(lista_pokemon,campo,valor):#10
+    
+    existe_campo = False
+    
+    for clave in lista_pokemon:
+        if campo in clave:
+            existe_campo = True
+            
+    if existe_campo:
+        lista_pokemon,informe = buscar_pokemon(lambda pokemon: pokemon == str(valor).capitalize(),lista_pokemon,campo)
+    else:
+        informe = "no existe el campo"
+   
+    print(f"""
+        campo: {campo}
+        valor: {valor}
+        informe: la cantidad de pokemones eliminados fueron: {informe} """)
+#
+def agregar_ceros(pokedex:str,cantidad:int):
+    """
+    agrega los ceros necesarios para completar los 12 caracteres
+    parametros: recibe el pokedex y la cantidad de caracteres que hay en el codigo
+    return: retorna los ceros que se necesitaban con el numero de pokedex
+    """
+    ceros_necesarios = 12 - cantidad
+    
+    pokedex = pokedex.zfill(ceros_necesarios)
+    return pokedex
+
+def calcular_valor_alto(valor_1:str,valor_2:str)->str:
+    """
+    calcula el mayor de los valores de dos campos
+    parametro: recibe dos valores de dos campos distintos para comparar
+    return: el mayor valor de los campos o empate y su campo
+    """
+    campo_alto = "ninguno"
+    mayor_valor = "ninguno"
+    
+    valor_1 = int(valor_1)
+    valor_2 = int(valor_2)
+    
+    if type(valor_1) == int and type(valor_2) == int:
+        
+        if valor_1 > valor_2:
+            campo_alto = "a"
+            mayor_valor = valor_1
+            
+        elif valor_1 < valor_2:
+            campo_alto = "d"
+            mayor_valor = valor_2
+        
+        else:
+            campo_alto = "ad"
+            mayor_valor = valor_1
+            
+    return campo_alto,mayor_valor
+    
+def obtener_inicial_nombre(pokemon:str)->str:
+    """
+    agarra la inicial de los nombres de los pokemones
+    parametro: recibe el nombre del pokemon
+    return: la inicial del nombre
+    """
+    nombre_pokemon = pokemon
+    
+    return nombre_pokemon[0]
+    
+def generar_codigo_pokemon(pokemon:dict)->str: 
+    """
+    va a generar el codigo de cada pokemon en la lista
+    parametro: recibe un diccionario que seria un pokemon
+    return: retornara un mensaje de 12 caracteres con su inicial,campo mas alto con su valor y pokedex
+    """
+    
+    inicial = obtener_inicial_nombre(pokemon['nombre'])
+    
+    campo_alto,valor_alto = calcular_valor_alto(pokemon["ataque"],pokemon["defensa"])
+    
+    mensaje = f"{inicial}-{campo_alto.upper()}-{valor_alto}-"
+    
+    pokedex_con_ceros = agregar_ceros(pokemon["numero_pokedex"],len(mensaje))
+    mensaje = f"{inicial}-{campo_alto.upper()}-{valor_alto}-{pokedex_con_ceros}"
+    
+    return mensaje
+    
+#
+def agregar_codigos_pokemon(lista_pokemones:list): #11
+    """"
+    agrega el codigo a cada uno de los pokemones de la lista
+    parametro: recibe la lista de pokemones
+    """
+    for pokemon in lista_pokemones:
+        codigo = generar_codigo_pokemon(pokemon)
+        pokemon["codigo"] = codigo
+        
+    print(lista_pokemones)
+    
+     
 

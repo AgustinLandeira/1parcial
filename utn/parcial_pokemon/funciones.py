@@ -12,7 +12,9 @@ def imprimir_menu():
             7. leer el json que creaste
             8. agregar un pokemon a la lista
             9 . leer archivo csv
-            10. salir """)
+            10. eliminar un pokemon de la lista
+            11. agregar codigo a los pokemones
+            12.salir """)
 
 def pokemon_menu_principal()->int:
     imprimir_menu()
@@ -21,7 +23,7 @@ def pokemon_menu_principal()->int:
     
         
     while re.match("[a-zA-Z]",respuesta):
-        respuesta = (input("ingrese un numero segun la opcion que quieras : "))
+        respuesta = (input("ERRROR,ingrese un numero segun la opcion que quieras : "))
     
         
     respuesta = int(respuesta)   
@@ -41,13 +43,12 @@ def pokemon_app_():
             
         respuesta = pokemon_menu_principal()
         
-        if respuesta <11 and type(respuesta) == int:
+        if respuesta <13 and type(respuesta) == int:
         
             if respuesta == 1:
                 lista_creada = True
-                lista_pokemones=traer_csv("nuevo.csv")#pokemones.csv
+                lista_pokemones=traer_csv("pokemones.csv")
                 print("se trajo los datos del csv")
-                
                 
             elif respuesta == 2 and lista_creada == True:
                 
@@ -68,6 +69,7 @@ def pokemon_app_():
             elif respuesta == 6 and lista_creada == True :
                 archivo = input("crea un nombre para un archivo json: ")
                 tipo= input("que tipo de pokemon buscas?: ")
+                
                 guardar_json(archivo,tipo,lista_pokemon)
                 
             elif respuesta == 7 and lista_creada == True :
@@ -82,12 +84,21 @@ def pokemon_app_():
             elif respuesta == 9 and lista_creada == True :
                 guardar_datos_csv(lista_pokemon)
                 
-            elif respuesta == 10:
+            elif respuesta == 10 and lista_creada == True:
+                campo = input("ingrese un campo: ")
+                valor = input("ingrese el valor que estes buscando: ")
+                
+                mostrar_pokemones_eliminados(lista_pokemon,campo,valor)
+            
+            elif respuesta == 11 and lista_creada == True:
+                agregar_codigos_pokemon(lista_pokemon)
+                
+            elif respuesta == 12:
                 print("acabas de cerrar la aplicacion")
                 
                 break
         else:
-            respuesta=int(input("error reingrese el numero: "))
+            print("te pasaste de rango")
             
         if lista_creada == True:
             
