@@ -59,6 +59,13 @@ def pokemon_app_():
                 listar_pokemones_por_tipo(lista_pokemon)
                 
             elif respuesta == 4 and lista_creada == True:
+                print("las habilidades son : ")
+                
+                for pokemon in lista_pokemon:
+                    cadena = ""
+                    print(cadena.join(pokemon['habilidades']))
+                    
+                
                 habilidad = input("ingrese la habilidad que queres: ")
                 
                 listar_pokemon_habilidad(habilidad,lista_pokemon)
@@ -77,7 +84,9 @@ def pokemon_app_():
                 leer_json(archivo)
                 
             elif respuesta ==8 and lista_creada == True:
+                
                 lista_pokemon = agregar_pokemon(lista_pokemon)
+                
                 print(lista_pokemon)
                 
                 

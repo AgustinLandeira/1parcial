@@ -284,10 +284,22 @@ def agregar_pokemon(lista_recibida:list)->list: # 8
         un_pokemon = {}
         
         un_pokemon["numero_pokedex"] = input("ingrese el numero de pokedex: ")
+        
+        while un_pokemon["numero_pokedex"] == "" or re.match("[a-zA-Z]",un_pokemon["numero_pokedex"]):
+            un_pokemon["numero_pokedex"] = input("error,ingrese el numero de pokedex: ")
+             
         un_pokemon["nombre"] = input("ingrese el nombre: ")
         
+        while un_pokemon["nombre"] == "" or re.match("[0-9]",un_pokemon["nombre"]):
+            un_pokemon["nombre"] = input("error,ingrese el nombre del pokemon : ")
+        
         while True:
+            
             un_pokemon["tipo"] = input("ingrese el tipo de pokemon: ").capitalize()
+            
+            while un_pokemon["tipo"] == "" or re.match("[0-9]",un_pokemon["tipo"]):
+                un_pokemon["tipo"] = input(" error, ingrese el tipo de pokedex: ")
+            
             respuesta = input("desea ingresar otro tipo?: ")
             
             while respuesta != "no" and respuesta != "si":
@@ -300,19 +312,20 @@ def agregar_pokemon(lista_recibida:list)->list: # 8
                 
         un_pokemon["ataque"] = input("ingrese el  poder de ataque del pokemon: ")
         
-        while re.match("[a-zA-Z]",un_pokemon["ataque"]):
+        while re.match("[a-zA-Z]",un_pokemon["ataque"]) or un_pokemon["ataque"] == "":
             
             un_pokemon["ataque"] = input("ERROR,ingrese el  poder de ataque del pokemon: ")
         
         un_pokemon["defensa"] = input("ingrese el poder de defensa: ")
         
-        while re.match("[a-zA-Z]",un_pokemon["defensa"]):
+        while re.match("[a-zA-Z]",un_pokemon["defensa"]) or un_pokemon["defensa"] == "":
             un_pokemon["defensa"] = input("ERROR,ingrese el poder de defensa: ")
             
         while True:
+            
             un_pokemon["habilidades"] = input(" ingrese las habilidades del pokemon: ").capitalize()
             
-            while re.match("[0-9]",un_pokemon["habilidades"]):
+            while re.match("[0-9]",un_pokemon["habilidades"]) or un_pokemon["habilidades"] == "":
                 un_pokemon["habilidades"] = input("porfavor ingreser la habildad?: ")
                  
             respuesta = input("desea ingresar otra habilidad?: ")
@@ -532,7 +545,8 @@ def agregar_codigos_pokemon(lista_pokemones:list): #11
         codigo = generar_codigo_pokemon(pokemon)
         pokemon["codigo"] = codigo
         
-    print(lista_pokemones)
+    for pokemon in lista_pokemones:
+        print(f"el pokemon se llama: {pokemon['nombre']} y su codigo es : {pokemon['codigo']}")
     
      
 
