@@ -62,7 +62,7 @@ def pokemon_app_():
                 print("las habilidades son : ")
                 
                 for pokemon in lista_pokemon:
-                    cadena = ""
+                    cadena =","
                     print(cadena.join(pokemon['habilidades']))
                     
                 
